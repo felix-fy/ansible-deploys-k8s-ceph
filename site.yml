@@ -1,0 +1,36 @@
+---
+- hosts: Prod-K8S-Cluster
+  remote_user: root
+  roles:
+          - linux_disable_swap
+          - centos_disable_selinux
+          - centos_enable_firewalld
+          - centos_install_bash_software
+          - centos_install_python_path
+          - centos_set_system_parameter
+          - linux_set_sshd.config
+          - centos_install_docker-ce
+          - centos_install_chrony
+          - linux_set_timezone
+          - centos_install_keepalived
+          - centos_install_haproxy
+          - haproxy_set_k8s_port
+          - centos_install_ceph_software
+          - ceph_set_master_ha
+          - ceph_add_osd
+          - ceph_set_cephfs
+          - centos_install_kubernetes_software
+          - kubernetes_set_master_ha
+          - kubernetes_add_node
+          - kubernetes_install_network_cni
+          - kubernetes_install_helm
+          - kubernetes_check_cluster_ststaus
+          - kubernetes_check_network_status
+          - ceph_check_cluster_status
+          - ceph_check_cephfs_upload
+          - kubernetes_binding_cephfs-pvc
+          - kubernetes_install_ingerss
+          - kubernetes_install_ELK
+          - kubernetes_install_prometheus
+          - kubernetes_install_dashboard
+          - ha_node_breakdown_test
