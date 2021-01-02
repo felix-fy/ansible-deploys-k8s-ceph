@@ -5,3 +5,4 @@
 #yum install -y ansible
 2. Ubuntu系统下安装ansible  
 #apt install -y ansible
+## ansible-hosts文件通过域名对服务器真实IP进行绑定，在使用前你需要在/etc/hosts文件或者DNS服务器中定义域名。
