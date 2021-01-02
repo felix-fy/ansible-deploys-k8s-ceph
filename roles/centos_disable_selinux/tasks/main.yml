@@ -1,0 +1,9 @@
+---
+- name: set stop delinux
+  shell: 'setenforce 0'
+ 
+- name: set disable selinux
+  lineinfile:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    line: SELINUX=disabled
