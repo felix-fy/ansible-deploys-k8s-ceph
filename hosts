@@ -1,0 +1,12 @@
+[Prod-K8S-Cluster]
+Prod-Controller-Server
+Prod-K8S-Master-01
+Prod-K8S-Master-02
+Prod-K8S-Master-03
+Prod-K8S-Node-01
+Prod-K8S-Node-02
+Prod-K8S-Node-03
+Prod-K8S-Node-04
+Prod-K8S-Node-05
+Prod-K8S-Node-06
+Prod-K8S-Node-07
