@@ -1,0 +1,9 @@
+---
+- name: stop swap
+  shell: 'swapoff -a'
+ 
+- name: disable load swap on system starting
+  lineinfile:
+    path: /etc/fstab
+    regexp: '^/dev/mapper/centos-swap'
+    line: #/dev/mapper/centos-swap 
