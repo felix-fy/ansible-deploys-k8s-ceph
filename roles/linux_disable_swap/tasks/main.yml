@@ -6,4 +6,4 @@
   lineinfile:
     path: /etc/fstab
     regexp: '^/dev/mapper/centos-swap'
-    line: #/dev/mapper/centos-swap 
+    line: '#/dev/mapper/centos-swap swap                    swap    defaults        0 0'
