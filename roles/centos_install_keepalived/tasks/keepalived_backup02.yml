@@ -1,0 +1,15 @@
+---
+- name: install keepalived software
+  yum:
+    name: keepalived
+    state: present
+
+- name: copy check script to remote server
+  copy:
+    src: check_haproxy.sh
+    dest: /etc/keepalived/
+
+- name: copy keepalived config file to remote server
+  template:
+    src: keepalived_backup02.conf.j2
+    dest: /etc/keepalived/keepalived.conf
