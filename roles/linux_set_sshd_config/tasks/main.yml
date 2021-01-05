@@ -1,0 +1,23 @@
+---
+- name: set allow root login to ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line:  'PasswordAuthentication yes'
+ 
+- name: set not use dns to ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^UseDNS'
+    line:  'UseDNS no'
+ 
+- name: set only attempt ssh connect
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^GSSAPIAuthentication'
+    line:  'GSSAPIAuthentication no'
+
+- name: restart sshd service
+  systemd:
+    name: sshd
+    state: restarted
