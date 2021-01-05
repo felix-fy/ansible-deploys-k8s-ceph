@@ -1,0 +1,34 @@
+---
+- name: running and autostart firewalld
+  systemd:
+    name: firewalld
+    state: started
+    enabled: True
+
+- name: open some ports allow connect
+  firewalld:
+    port: "{{ item.name }}"
+    permanent: yes
+    state: enabled
+  with_items:
+    - name: '22/tcp'
+    - name: '123/udp'
+    - name: '323/udp'
+    - name: '53/udp'
+    - name: '6789/tcp'
+    - name: '6800/tcp'
+    - name: '6801-7300/tcp'
+    - name: '8888/tcp'
+    - name: '2379/tcp'
+    - name: '2380/tcp'
+    - name: '6443/tcp'
+    - name: '7443/tcp'
+    - name: '8472/tcp'
+
+- name: allow VRRP protocol
+  shell: "{{ item.name }}"
+  ignore_errors: yes
+  with_items:
+  - name: 'firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT 0 --de                                                                                                             stination 224.0.0.18 --protocol vrrp -j ACCEPT'
+  - name: 'firewall-cmd --direct --permanent --add-rule ipv4 filter OUTPUT 0 --d                                                                                                             estination 224.0.0.18 --protocol vrrp -j ACCEPT'
+  - name: 'firewall-cmd --reload'
