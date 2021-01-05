@@ -1,0 +1,25 @@
+---
+- name: install base software
+  yum:
+   name: chrony
+   state: present
+
+- name: change chrony config file
+  lineinfile:
+    path: /etc/chrony.conf
+    regexp: '^server'
+    line: '#server'
+
+- name: add TimeServer to chrony config file
+  lineinfile:
+    path: /etc/chrony.conf
+    line: 'server IDC-TimeServer iburst'
+
+- name: start and enable chronyd
+  systemd:
+    name: chronyd
+    state: restarted
+    enabled: yes
+
+- name: check chrony sync time
+  shell: 'chronyc sources'
