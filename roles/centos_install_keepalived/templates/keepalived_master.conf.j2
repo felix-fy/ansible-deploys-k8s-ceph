@@ -1,0 +1,28 @@
+global_defs {
+   smtp_connect_timeout 30
+   router_id {{ ROUTE_ID_01 }}
+}
+
+vrrp_script chk_haproxy {
+   script "/etc/keepalived/check_haproxy.sh"
+   interval 2
+   weight 2
+}
+
+vrrp_instance {{ VRRP_INSTANSE }} {
+   state master
+   interface {{ INTERFACE }}
+   virtual_router_id {{ VIRTUAL_ROUTE_ID }}
+   priority {{ PRIOTIRY_MASTER }}
+   advert_int 1
+   authentication {
+       auth_type PASS
+       auth_pass {{ AUTH_PASS }}
+   }
+   track_script {
+       chk_haproxy
+   }
+   virtual_ipaddress {
+       {{ VIRTUAL_IP }}/24 dev {{ INTERFACE }} label {{ INTERFACE }}:1
+   }
+}
