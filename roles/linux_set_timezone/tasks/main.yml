@@ -1,0 +1,6 @@
+---
+- name: ln timezone file
+  file:
+    src: "/usr/share/zoneinfo/Asia/Shanghai"
+    dest: "/etc/localtime"
+    state: link
