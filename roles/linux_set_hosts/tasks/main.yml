@@ -1,0 +1,5 @@
+---
+- name: copy hosts file to remote server
+  copy: 
+    src: hosts
+    dest: /etc/hosts
