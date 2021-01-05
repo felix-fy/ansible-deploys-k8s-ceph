@@ -1,0 +1,41 @@
+---
+- name: move repo directory to backup directory
+  copy:
+   src: "/etc/yum.repos.d"
+   dest: "/etc/yum.repos.d.backup"
+   remote_src: yes
+
+- name: mkdir repo directory
+  file:
+   path: /etc/yum.repos.d/
+   state: directory
+
+- name: download base repo
+  get_url:
+   url: http://mirrors.aliyun.com/repo/Centos-7.repo
+   dest: /etc/yum.repos.d/CentOS-Base.repo
+
+- name: download epel repo
+  get_url:
+   url: http://mirrors.aliyun.com/repo/epel-7.repo
+   dest: /etc/yum.repos.d/CentOS-Epel.repo
+
+- name: install base software
+  yum:
+   name:
+     - net-tools
+     - vim
+     - iftop
+     - telnet
+     - sysstat
+     - wget
+     - mtr
+     - telnet
+     - make
+     - cmake
+     - gcc
+     - gcc-c++
+     - curl
+     - rsync
+   state: present
+   update_cache: yes
