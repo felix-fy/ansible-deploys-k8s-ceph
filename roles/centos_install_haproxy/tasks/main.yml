@@ -1,0 +1,17 @@
+---
+- name: install haproxy software
+  yum:
+   name: haproxy
+   state: present
+
+- name: copy haproxy.cfg to server
+  copy:
+   src: haproxy.cfg
+   dest: /etc/haproxy/haproxy.cfg
+   mode: 744
+
+- name: start and enable haproxy
+  systemd:
+   name: haproxy
+   state: restarted
+   enabled: yes
