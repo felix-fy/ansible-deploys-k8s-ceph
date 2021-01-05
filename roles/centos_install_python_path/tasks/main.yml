@@ -1,1 +1,21 @@
+---
+- name: install base software
+  yum:
+   name:
+   - python
+   - python3
+   - python-devel
+   - python3-devel
+   - python-pip
+   - python3-pip
+   state: present
 
+- name: touch pip config file
+  file:
+   path: /root/.pip/
+   state: directory
+
+- name: copy pip.conf to remote server
+  copy:
+   src: pip.conf
+   dest: /root/.pip/pip.conf
