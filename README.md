@@ -11,17 +11,17 @@
 1. 修改hosts文件,将{}中的IP修改为你的实际IP
 #cd linux_set_hosts/files/
 #vim hosts
-{10.3.3.1} IDC-TimeServer
-{10.3.3.230} IDC-Kubernetes-VIP
-{10.3.3.231} IDC-Kubernetes-Master01
-{10.3.3.232} IDC-Kubernetes-Master02
-{10.3.3.233} IDC-Kubernetes-Master03
-{10.3.3.234} IDC-Kubernetes-Node01
-{10.3.3.235} IDC-Kubernetes-Node02
-{10.3.3.236} IDC-Kubernetes-Node03
-{10.3.3.237} IDC-Kubernetes-Node04
-{10.3.3.238} IDC-Kubernetes-Node05
-{10.3.3.239} IDC-Kubernetes-Node06
-{10.3.3.240} IDC-Kubernetes-Node07
+{10.3.3.1} IDC-TimeServer       
+{10.3.3.230} IDC-Kubernetes-VIP       
+{10.3.3.231} IDC-Kubernetes-Master01      
+{10.3.3.232} IDC-Kubernetes-Master02      
+{10.3.3.233} IDC-Kubernetes-Master03     
+{10.3.3.234} IDC-Kubernetes-Node01     
+{10.3.3.235} IDC-Kubernetes-Node02     
+{10.3.3.236} IDC-Kubernetes-Node03    
+{10.3.3.237} IDC-Kubernetes-Node04    
+{10.3.3.238} IDC-Kubernetes-Node05    
+{10.3.3.239} IDC-Kubernetes-Node06    
+{10.3.3.240} IDC-Kubernetes-Node07    
 
 2. 
