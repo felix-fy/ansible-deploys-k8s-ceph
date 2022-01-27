@@ -8,9 +8,9 @@
 #apt install -y ansible
 ## 二、ansible-hosts文件通过域名对服务器真实IP进行绑定，在使用前你需要在/etc/hosts文件或者DNS服务器中定义域名。   
 ## 三、在开始之前，你需要对某些文件进行配置，请遵循以下步骤修改相应文件。
-1. 修改hosts文件,将{}中的IP修改为你的实际IP
-#cd linux_set_hosts/files/
-#vim hosts
+1. 修改hosts文件,将{}中的IP修改为你的实际IP    
+#cd linux_set_hosts/files/     
+#vim hosts     
 {10.3.3.1} IDC-TimeServer       
 {10.3.3.230} IDC-Kubernetes-VIP       
 {10.3.3.231} IDC-Kubernetes-Master01      
